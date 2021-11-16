@@ -23,9 +23,10 @@ import com.example.BusinessLayer.Coursepreview;
 
 @ExtendWith(MockitoExtension.class)
 public class CalculteCreditClassTest {
-	@MockBean
+	@Mock
 	CourseInter repo;
-	@MockBean
+	
+	@Autowired
 	Coursepreview cp;
 	@InjectMocks  
 	private CalculateCredit calcredit;
@@ -40,6 +41,7 @@ public class CalculteCreditClassTest {
 		 * 
 		 * }
 		 */
+	 List<Coursepreview> calculateValue = calcredit.calculateValue();
 	
 	
 	
