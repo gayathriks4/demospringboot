@@ -20,7 +20,7 @@ public class CalculateCredit {
   
   
   @Autowired
-  Coursepreview cp1;
+  Coursepreview cp;
  
   
   public CalculateCredit() {
@@ -36,12 +36,12 @@ List<CourseCredit> cocredit = repo.findAll();
 		if(courseCredit.getCredit()==2) {
 			System.out.println("Debug:"+courseCredit.getCredit());
 			double val=courseCredit.getCredit()*500*1.8;
-			cp1.setCourseid(courseCredit.getCourseid());
-			cp1.setCourseValue(val);
-			cp1.setCoursename(courseCredit.getCoursename());
-			cp1.setCredit(courseCredit.getCredit());
+			cp.setCourseid(courseCredit.getCourseid());
+			cp.setCourseValue(val);
+			cp.setCoursename(courseCredit.getCoursename());
+			cp.setCredit(courseCredit.getCredit());
 			
-			//Coursepreview cp1=new Coursepreview(cp.getCourseid(),cp.getCoursename(),cp.getCredit(),cp.getCourseValue());
+			Coursepreview cp1=new Coursepreview(cp.getCourseid(),cp.getCoursename(),cp.getCredit(),cp.getCourseValue());
 			//cplist.add(cp.setCourseid(courseCredit.getCourseid()));
 		
 			coursevalue.add(val);
@@ -51,16 +51,16 @@ List<CourseCredit> cocredit = repo.findAll();
 			double val=courseCredit.getCredit()*300*2.8;
 			
 			//cplist.add(cp.setCourseid(courseCredit.getCourseid()));
-			cp1.setCourseid(courseCredit.getCourseid());
-			cp1.setCourseValue(val);
-			cp1.setCoursename(courseCredit.getCoursename());
-			cp1.setCredit(courseCredit.getCredit());
-			//Coursepreview cp1=new Coursepreview(cp.getCourseid(),cp.getCoursename(),cp.getCredit(),cp.getCourseValue());
+			cp.setCourseid(courseCredit.getCourseid());
+			cp.setCourseValue(val);
+			cp.setCoursename(courseCredit.getCoursename());
+			cp.setCredit(courseCredit.getCredit());
+			Coursepreview cp1=new Coursepreview(cp.getCourseid(),cp.getCoursename(),cp.getCredit(),cp.getCourseValue());
 			//cplist.add(cp1);
 			//cplist.add(cp.setCourseValue(val));
 			coursevalue.add(val);
 		}
-		Coursepreview cp1=new Coursepreview(cp1.getCourseid(),cp1.getCoursename(),cp1.getCredit(),cp1.getCourseValue());
+		Coursepreview cp1=new Coursepreview(cp.getCourseid(),cp.getCoursename(),cp.getCredit(),cp.getCourseValue());
 		cplist.add(cp1);
 	}
 	for (Double double1 : coursevalue){

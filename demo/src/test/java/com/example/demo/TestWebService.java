@@ -96,9 +96,10 @@ public class TestWebService {
 	     List<CourseCredit> crlist=new ArrayList<CourseCredit>(Arrays.asList(new CourseCredit(1,"machinelearning",3),
 	    		 new CourseCredit(3,"Data",2),
 	    		 new CourseCredit(2,"datamining",3)));
-	     List<Coursepreview> cpreview=new ArrayList<Coursepreview>();
+	    
 	    
 	     Mockito.when(repo.findAll()).thenReturn(crlist);
+	     List<Coursepreview> cpreview=new ArrayList<Coursepreview>();
 		ResultMatcher ok = MockMvcResultMatchers.status().isOk();
 		MockHttpServletRequestBuilder builder=MockMvcRequestBuilders.get("/Demo/creditdetail");
 		this.mvc.perform(builder).andDo(print())

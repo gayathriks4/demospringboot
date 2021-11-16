@@ -12,8 +12,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.BusinessLayer.CalculateCredit;
 import com.example.BusinessLayer.Coursepreview;
@@ -21,9 +23,9 @@ import com.example.BusinessLayer.Coursepreview;
 
 @ExtendWith(MockitoExtension.class)
 public class CalculteCreditClassTest {
-	@Mock
+	@MockBean
 	CourseInter repo;
-	@Autowired
+	@MockBean
 	Coursepreview cp;
 	@InjectMocks  
 	private CalculateCredit calcredit;
@@ -31,8 +33,14 @@ public class CalculteCreditClassTest {
 	public void CalCreditTest() throws Exception{
 		 List<CourseCredit> crlist=new ArrayList<CourseCredit>(Arrays.asList(new CourseCredit(2,"datamining",3),
 	    		 new CourseCredit(3,"Data",2)));
-	   
-	Mockito.when(repo.findAll()).thenReturn(crlist);
+	 Mockito.when(repo.findAll()).thenReturn(crlist);
+		/*
+		 * int a; for(CourseCredit cr:crlist) {
+		 * Mockito.when(cp.setCourseid(a)).thenRrturn(cr.getCourseid());
+		 * 
+		 * }
+		 */
+	
 	
 	
 	//Double courseValue = calculateValue.get(0).getCourseValue();
